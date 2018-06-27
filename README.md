@@ -20,8 +20,8 @@ npm run build --report
 # 文件路径
 <pre>
 --src              路基<br>
-&nbsp;&nbsp;--assets         资源<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--font       字体<br>
+  --assets         资源<br>
+      --font       字体<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--style      样式<br>
 &nbsp;&nbsp;--components     组件<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--Audio           音乐播放器组件<br>
