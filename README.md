@@ -45,3 +45,4 @@ npm run build --report
   --App.vue
   --main.js
 https://github.com/ZhongAndGit/VueApp/src/components/Loding/logding.gif
+![image](https://github.com/ZhongAndGit/VueApp/src/components/Loding/logding.gif)
