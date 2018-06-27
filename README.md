@@ -44,4 +44,4 @@ npm run build --report
   --vuex           数据存储
   --App.vue
   --main.js
-https://github.com/ZhongAndGit/VueApp/edit/master/src/components/Loding/logding.gif
+https://github.com/ZhongAndGit/VueApp/src/components/Loding/logding.gif
