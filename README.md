@@ -46,5 +46,5 @@ npm run build --report
   --App.vue<br>
   --main.js<br>
  </pre>
-
+---------------------------------------
 ![image](https://github.com/ZhongAndGit/VueApp/raw/master/src/components/Loding/logding.gif)
