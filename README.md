@@ -44,3 +44,4 @@ npm run build --report
   --vuex           数据存储
   --App.vue
   --main.js
+https://github.com/872822645/danxuankuangDemo/blob/master/1.jpg 
