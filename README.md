@@ -18,8 +18,8 @@ npm run build
 npm run build --report
 ```
 
---src              路基
-  --assets         资源
+#--src              路基
+#  --assets         资源
       --font       字体
       --style      样式
   --components     组件
