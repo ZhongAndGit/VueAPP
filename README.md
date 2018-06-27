@@ -47,4 +47,4 @@ npm run build --report
   --main.js<br>
  </pre>
 ---------------------------------------
-！[ image ]（https://github.com/ZhongAndGit/VueAPP/ blob / master / loading .gif）
+！[ image ]（https://github.com/ZhongAndGit/VueAPP/blob/master/loading.gif)
