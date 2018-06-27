@@ -48,4 +48,4 @@ npm run build --report
  </pre>
 ---------------------------------------
 ![image](https://github.com/ZhongAndGit/VueAPP/blob/master/loding.gif)
-![image](https://github.com/ZhongAndGit/VueAPP/master/loding.gif)
+![image](https://github.com/ZhongAndGit/VueAPP/blob/master/loading.gif)
