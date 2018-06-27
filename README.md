@@ -18,7 +18,7 @@ npm run build
 npm run build --report
 ```
 # 文件路径
-
+<pre>
 --src              路基<br>
 &nbsp;&nbsp;--assets         资源<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--font       字体<br>
@@ -45,6 +45,6 @@ npm run build --report
 &nbsp;&nbsp;--vuex           数据存储<br>
 &nbsp;&nbsp;--App.vue<br>
 &nbsp;&nbsp;--main.js<br>
-
+ </pre>
 
 ![image](https://github.com/ZhongAndGit/VueApp/raw/master/src/components/Loding/logding.gif)
