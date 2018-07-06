@@ -43,8 +43,8 @@ npm run build --report
       --Top             标签切换
   --router         配置路由
   --vuex           数据存储
-  --App.vue<br>
-  --main.js<br>
+  --App.vue
+  --main.js
  </pre>
 ---------------------------------------
-![image](https://github.com/ZhongAndGit/VueAPP/blob/master/src/components/Loding/loding.gif)
+![image](https://github.com/ZhongAndGit/VueAPP/blob/master/loading.gif)

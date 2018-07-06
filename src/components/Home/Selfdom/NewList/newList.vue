@@ -68,17 +68,24 @@
     }
   }
 </script>
-<style>
+<style lang="scss">
+  @import '../../../../assets/style/common';
+
+  $browser-default-font-size: 50px !default;
+  @function pxTorem($px) {
+  @return $px / $browser-default-font-size * 1rem;
+  }
     #newList{
       width: 95%;
       margin: auto;
+      font-size: pxTorem(12px);
     }
     #newList .title{
-      padding-left:20px;
-      line-height: 20px;
-      margin:10px 0 ;
+      padding-left:px2rem(20px);
+      line-height:px2rem( 20px);
+      margin:px2rem(10px) 0 ;
       text-align: left;
-      border-left: 3px solid red;
+      border-left: px2rem(3px) solid red;
     }
     #newList .noeS{
       flex: 1;
@@ -90,7 +97,7 @@
     }
     #newList .noeS .block_list{
         width: 32%;
-        margin-bottom: 9px;
+        margin-bottom: px2rem(9px);
     }
 
     #newList .noeS .block_list:nth-child(2),
@@ -107,10 +114,10 @@
       text-align: left;
       overflow: hidden;
       text-overflow: ellipsis;
-      line-height: 20px;
+      line-height: px2rem(20px);
     }
   #newList .noeS .block_list p.two{
     white-space:nowrap;
-    line-height: 15px;
+    line-height: px2rem(20px);
   }
 </style>

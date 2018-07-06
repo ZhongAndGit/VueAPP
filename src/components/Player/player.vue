@@ -38,7 +38,7 @@
               </li>
             </ul>
             <ul v-show="!lrc.length" v-bind:style="{top:lrcTop}" class="word-list">
-              <li>暫無歌曲</li>
+              <li style="color: white">暫無歌曲</li>
             </ul>
           </div>
         </transition>
@@ -55,7 +55,7 @@
       </div>
       <div class="music-button">
         <ul>
-          <li><span class="iconfont icon-icon-1"></span></li>
+          <li><span class="iconfont icon-icon--"></span></li>
           <li><span class="iconfont icon-shangyigeshangyiqu" @click="prev()"></span></li>
           <li>
             <span :class="playButtonUrl"  @click="togglePlay"></span>
@@ -72,7 +72,7 @@
         </div>
         <div class="content">
           <ul >
-            <li v-for="(item,index) in songsList" @click="toPlay(item.id)" >
+            <li v-for="(item,index) in songsList" @click="toPlay(item.id)" :style="{color:(title===item.name)?'rgb(87,250,255)':'#6a6868',}">
               <div>
                 <span>{{index+1}}</span>
                 <span>{{item.name}}</span>
@@ -89,6 +89,7 @@
   </div>
 </template>
 <script>
+
   import axios from 'axios'
   import { mapMutations, mapGetters } from 'vuex'
   export default {
@@ -363,7 +364,15 @@
     }
   }
 </script>
-<style>
+<style lang="scss" >
+  @import '../../assets/style/common.scss';
+
+  $browser-default-font-size: 50px !default;
+  @function pxTorem($px) {
+    @return $px / $browser-default-font-size * 1rem;
+  }
+
+
   #play{
     position: fixed;
     top: 0;
@@ -373,15 +382,17 @@
     height: 100%;
     width: 100%;
     color: white;
+    font-size: pxTorem(12px);
   }
   #play .header{
-    border-bottom: 1px solid rgba(255,255,255,0.4);
+    border-bottom: px2rem(1px) solid rgba(255,255,255,0.4);
     width: 100%;
     margin: 0;
     display: flex;
-    height: 50px;
-    line-height: 50px;
+    height: px2rem(70px);
+    line-height: px2rem(70px);
     justify-content: space-between;
+    background: rgba(0, 0, 0, 0.3);
   }
   #play .header .iconfont{
     width: 10%;
@@ -392,9 +403,9 @@
     text-align: center;
   }
   #play .header .title>h3,#play .header .title span{
-    font-size: 14px;
-    height:25px;
-    line-height: 25px;
+    font-size: pxTorem(15px);
+    height:px2rem(35px);
+    line-height:px2rem(35px);
     overflow: hidden;
     text-overflow:ellipsis;
     width: 90%;
@@ -402,7 +413,7 @@
   }
   #play .header .title span{
     display: block;
-   font-size: 12px;
+    font-size: pxTorem(12px);
   }
   #play .bgcl{
     position: absolute;
@@ -453,20 +464,18 @@
   }
   #play .body .disc .muen{
     width: 70%;
-    margin: auto;
-    margin-top: 100px;
-    margin-bottom: 100px;
+    margin:px2rem(100px) auto;
     display: flex;
     justify-content: space-between;
   }
   #play .body .disc .muen .iconfont{
-   font-size: 30px;
+   font-size: pxTorem(40px);
   }
   #play .body .disc .disc-img .needle{
     position: fixed;
     /*top: 8vh;*/
-    left: 45%;
-    width: 20%;
+    left: calc(50% - 10px);
+    width: px2rem(100px);
     z-index: 50;
     transform-origin:center;
     /*transform:rotate(7deg);*/
@@ -481,11 +490,11 @@
   }
   #play .body .disc .disc-img .transform-img{
     position: relative;
-    top: 50px;
-    width: 70%;
-    padding-bottom: 70%;
+    top: px2rem(60px);
+    width: px2rem(400px);
+    padding-bottom: px2rem(400px);
     margin: auto;
-    border: 10px solid rgba(255,255,255,0.5);
+    border: px2rem(15px) solid rgba(255,255,255,0.5);
     border-radius: 50%;
   }
   #play .body .disc .disc-img .transform-img .trans-png{
@@ -507,8 +516,7 @@
   }
   #play .body .word{
     position: relative;
-    font-size: 15px;
-    height: 420px;
+    height: px2rem(550px);
     overflow: hidden;
     /*margin-top: 40px;*/
     transition: all 1s;
@@ -518,7 +526,7 @@
     position: absolute;
     width:100%;
     text-align: center;
-    font-size: 16px;
+    font-size: pxTorem(18px);
     line-height: 30px;
     color: rgba(145,145,145,0.7);
     transition: all 0.5s;
@@ -542,13 +550,13 @@
     width: 100%;
   }
   #play .footer .progress{
-    margin: 20px auto;
+    margin: px2rem(40px) auto;
     display: flex;
     justify-content: space-between;
   }
 #play .footer .music-button ul{
   width: 90%;
-  margin: 50px auto;
+  margin: px2rem(50px) auto;
   display: flex;
   justify-content: space-between;
 }
@@ -556,35 +564,36 @@
     display: inline-block;
   }
   #play .footer .music-button .iconfont {
-    font-size: 40px;
+    font-size: pxTorem(40px);
   }
 
   .start-time,.end-time{
-    padding: 0 25px;
+    padding: 0 px2rem(40px);
   }
   .plan{
-    height:3px;
-    line-height: 3px;
+    height:px2rem(5px);
+    line-height: px2rem(5px);
     background: rgba(255,255,255,0.2);
-    border-radius: 3px;
+    border-radius: px2rem(5px);
     flex: 1;
     position: relative;
-    top: 5px;
+    top: px2rem(5px);
   }
   .plan .plan_first{
     height: inherit;
     width: 0%;
     max-width: 100%;
     background: rgb(87,250,255);
+    border-radius: px2rem(5px);
   }
   .plan .plan_first .dot{
-    width: 10px;
-    height: 10px;
+    width: px2rem(15px);
+    height: px2rem(15px);
     border-radius: 50%;
     background: white;
     position: absolute;
-    top:-3px;
-    right: -5px;
+    top:px2rem(-5px);
+    right: px2rem(-7.5px);
   }
 
   #play .songs-box {
@@ -598,31 +607,29 @@
     align-content:stretch;
     z-index: 99;
     transition: all 0.4s;
-    color: black;
+    color: #6a6868;
     background: rgba(255,255,255,0.9);
-    font-size: 16px;
+    font-size: pxTorem(17px);
     clear: both;
   }
   #play .songs-box .top{
-      height: 50px;
-      line-height: 50px;
+      height: px2rem(50px);
+      line-height: px2rem(50px);
       width: 100%;
       display: flex;
       justify-content: space-between;
   }
   #play .songs-box .top>span.left{
-   /*line-height: 50px;*/
-    margin-left: 20px;
+    margin-left: px2rem(30px);
   }
   #play .songs-box .top>span.right{
-    margin: 10px 20px;
-    height: 30px;
-    line-height: 30px;
-    border-left: 1px solid #ddd;
+    margin: px2rem(10px) px2rem(20px);
+    line-height: px2rem(30px);
+    border-left: px2rem(2px) solid #c0bbbb;
   }
   #play .songs-box .top>span.right>span{
-    padding-left: 10px;
-    font-size: 30px;
+    padding-left: px2rem(10px);
+    font-size: pxTorem(25px);
     vertical-align: middle;
   }
 
@@ -630,14 +637,17 @@
     width: 100%;
     flex: 1;
     overflow: auto;
-    border-top:1px solid #ddd;
-    border-bottom:1px solid #ddd;
-
+    border-top:px2rem(1px) solid #ddd;
+    border-bottom:px2rem(1px) solid #ddd;
+  }
+  #play .songs-box .content>ul::-webkit-scrollbar,#play .songs-box .content::-webkit-scrollbar{
+    width: 0;
+    height: 0;
   }
   #play .songs-box .content li{
-    height: 50px;
-    line-height: 50px;
-    border-bottom: 1px solid #ddd;
+    height: px2rem(50px);
+    line-height: px2rem(50px);
+    border-bottom: px2rem(1px) solid #ddd;
     display: flex;
     justify-content: space-between;
   }
@@ -645,15 +655,15 @@
     width: 80%;
     overflow: hidden;
     text-align: left;
-    padding-left: 20px;
+    padding-left: px2rem(20px);
   }
   #play .songs-box .content li>span{
     width: 10%;
-    padding-right: 5px;
+    padding-right:px2rem(10px);
   }
   #play .songs-box .bottom{
-    height: 50px;
-    line-height: 50px;
+    height: px2rem(50px);
+    line-height: px2rem(50px);
     width: 100%;
   }
   #play .songs-box .bottom span{

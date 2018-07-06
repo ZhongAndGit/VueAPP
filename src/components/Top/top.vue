@@ -3,15 +3,13 @@
     <div id="top-list">
       <div class="menu-personage"><button class="iconfont icon-icon-bars" @click="toggleBody(1)"></button></div>
       <div class="menu-item">
-        <div class="item" >
-          <router-link to="/myMusic" > <h2 aria-hidden="true" :style="{fontSize:active1?'17px':'15px',color:active1?'white':''}">我的音乐</h2></router-link>
-        </div>
-        <div class="item" >
-          <router-link to="/home"> <h2 aria-hidden="true" :style="{fontSize:active2?'17px':'15px',color:active2?'white':''}">发现音乐</h2></router-link>
-        </div>
-        <div class="item" >
-          <router-link to="/newMusic"><h2 aria-hidden="true" :style="{fontSize:active3?'17px':'15px',color:active3?'white':''}">音乐热文</h2></router-link>
-        </div>
+        <ul class="menu-item-c">
+            <router-link class="item"
+                         :to="item.path"
+                         tag="li"
+                         v-for="(item,index) in mainMenu"
+                         :key="index">{{item.title}}</router-link>
+        </ul>
       </div>
     </div>
     <div class="bgc3" @click="toggleBody()" v-show="menu" ></div>
@@ -61,32 +59,22 @@
     </div>
   </div>
 </template>
+
 <script>
   export default {
     data() {
       return {
         menu: false,//左边菜单toggle
-        active1:false,
-        active2:true,
-        active3:false,
-        userBGImg:''
+        userBGImg:'',
+        mainMenu:[
+          {path:'/myMusic',title:'我的音乐'},
+          {path:'/home',title:'发现音乐'},
+          {path:'/newMusic',title:'音乐热文'},
+        ]
       }
     },
     mounted(){
       //标签页active切换状态
-      if(this.$route.path == '/myMusic'){
-          this.active1 = true;
-          this.active2 = false;
-          this.active3 = false;
-      }else if(this.$route.path =='/home' ){
-        this.active1 = false;
-        this.active2 = true;
-        this.active3 = false;
-      }else if(this.$route.path =='/newMusic'){
-        this.active1 = false;
-        this.active2 = false;
-        this.active3 = true;
-      }
     },
     methods:{
       //弹窗禁止body滚动
@@ -105,8 +93,15 @@
     }
   }
 </script>
-<style >
-  .left-list-menu ::-webkit-scrollbar{
+<style lang="scss">
+  @import '../../assets/style/common.scss';
+
+  $browser-default-font-size: 50px !default;
+  @function pxTorem($px) {
+  @return $px / $browser-default-font-size * 1rem;
+  }
+
+  .left-list-menu ::-webkit-scrollbar,.menu-item-c::-webkit-scrollbar{
     width: 0;
     height: 0;
   }
@@ -119,38 +114,27 @@
     z-index: 999;
     background: rgba(0,0,0,0.85);
     color: white;
-    height: 8vh;
+    height:px2rem(60px);
   }
   #top .menu-personage{
     width: 10%;
     height: 100%;
   }
   #top .menu-item{
+    width: 90%;
+  }
+  #top .menu-item-c{
     display: flex;
-    color: white;
-    height: 8vh;
+    overflow: auto;
   }
-  #top .item {
-    padding: 0 5px;
-    text-align: center;
-  }
-
-  #top .item h2 {
+  #top .item{
     font-weight:inherit;
-    font-size: 15px ;
-    margin: 0;
-    height: 8vh;
-    line-height: 8vh;
-    width: 100%
-
-  }
-  .active h2{
-    color: #3F92B0 !important;
-    font-size: 17px!important;
-  }
-  a{
+    font-size: pxTorem(18px );
+    line-height: px2rem(60px);
     color: #7e8c8d;
-    text-decoration: none
+    flex-basis:px2rem(100px);
+    text-align: center;
+    flex-shrink:0;
   }
   #top .left-list-menu{
     position: fixed;
@@ -173,18 +157,18 @@
     transition: all 0.4s;
     color: white;
     background: rgba(0,0,0,1);
-    font-size: 16px;
+    font-size: pxTorem(18px);
     clear: both;
   }
-   .bgc3 {
-     position: fixed;
-     top: 0;
-     left: 0;
-     z-index: 10;
-     height: 100%;
-     width: 100%;
-     background: rgba(0, 0, 0, 0.5);
-   }
+  .bgc3 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+  }
   .bgc4 {
      position: absolute;
      top: 0;
@@ -205,31 +189,31 @@
   }
   #top .left-list-menu .set-personage .use-nickname .use-nickname-img{
     text-align: left;
+    padding:px2rem(100px) 0 px2rem(25px) px2rem(25px);
   }
   #top .left-list-menu .set-personage .use-nickname .use-nickname-name{
    text-align: left;
-   padding: 1vh 0 1vh 3vh;
+   padding: px2rem(25px);
   }
   #top .left-list-menu .set-personage .use-nickname .use-nickname-img img{
-    width: 30%;
+    width: 35%;
     border-radius: 50%;
-    padding: 10vh 2vh 2vh 2vh;
   }
   #top .left-list-menu .set-personage li{
-    line-height: 40px;
+    line-height: px2rem(50px);
     text-align: left;
-    padding-left: 3vh;
+    padding-left: px2rem(25px);
     background: rgba(0,0,0,0.2);
   }
   #top .left-list-menu .set-personage .use-set1{
-    margin-bottom: 10px;
+    margin-bottom: px2rem(10px);
   }
   #top .left-list-menu .set-bottom{
     position: fixed;
     bottom: 0;
     left: -70%;
     width: 70%;
-    height: 50px;
+    height: px2rem(50px);
     -webkit-transition: all 0.4s;
     transition: all 0.4s;
     background: rgba(0,0,0,0.2);
@@ -241,7 +225,11 @@
   }
   #top .left-list-menu .set-bottom ul li{
     height: 100%;
-    line-height: 50px;
+    line-height: px2rem(50px);
     flex: 1;
+  }
+ #top-list .menu-item .router-link-active{
+    color: white;
+    font-size: pxTorem(20px)!important;
   }
 </style>

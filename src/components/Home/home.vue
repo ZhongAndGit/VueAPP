@@ -1,52 +1,44 @@
 <template>
   <div >
     <top></top>
-    <div class="child-menTab">
-      <router-link to="/home/0">
-        <span  @click="toggle(0)">个性</span>
-      </router-link>
-      <router-link to="/home/1"  >
-        <span @click="toggle(1)">电台</span>
-      </router-link>
-      <router-link to="/home/2" >
-        <span  @click="toggle(2)">音悦台MV</span>
-      </router-link >
-      <router-link to="/home/3" >
-        <span  @click="toggle(3)">歌曲排行榜</span>
-      </router-link>
+    <div class="child-menTab" >
+      <router-link
+        :to="{path: '/home/' + item.loct}"
+        :key="index"
+        v-for="(item,index) in listV"
+        tag="span"
+        @click.native="toggle(index)">{{item.title}}</router-link>
     </div>
-    <div class="conten">
-      <selfdom v-show="check0" ></selfdom>
-      <fm v-show="check1" ></fm>
-      <mv v-show="check2"></mv>
-      <crunchies v-show="check3"></crunchies>
+    <div class="conten" >
+        <component :is="viewActive" ></component>
     </div>
   </div>
 </template>
-<style>
+<style   lang="scss" >
+  @import '../../assets/style/common.scss';
+
   .child-menTab{
     position: fixed;
-    top: 8vh;
+    top: px2rem(60px);
     display: flex;
     justify-content: space-around;
-    flex: 1;
     width: 100%;
     background: rgba(255,255,255,0.8);
     z-index: 8
   }
-  .child-menTab span{
-    display: inline-block;
+  .conten{
+    position: absolute;
     width: 100%;
-    line-height: 4vh;
+    top: px2rem(100px);
+    left: 0;
   }
-  .child-menTab a{
-    display: block;
+  .child-menTab span{
     flex: 1;
+    border-bottom: px2rem(1px) solid rgba(255,255,255,0.8);
+    line-height: px2rem(40px);
   }
-  .child-menTab a span{
-    border-bottom: 1px solid rgba(255,255,255,0.8);
-  }
-  .child-menTab .router-link-active span{
+
+  .child-menTab .router-link-active {
     border-color:red;
     -webkit-transition: all 1s;
     -moz-transition: all 1s;
@@ -66,69 +58,33 @@
   export default {
     data(){
       return{
-        check0:false,
-        check1:false,
-        check2:false,
-        check3:false,
+        listV:[
+          {loct:'selfdom',title:'个性'},
+          {loct:'fm',title:'电台'},
+          {loct:'mv',title:'音悦台MV'},
+          {loct:'crunchies',title:'歌曲排行榜'}
+        ],
+        viewActive:'selfdom'
       }
     },
     mounted(){
-      if(this.$route.path == '/'|| this.$route.path == '/home'||this.$route.path == '/home/0'){
-        this.check0 = true;
-        this.check1 = false;
-        this.check2 = false;
-        this.check3 = false
-      }else if(this.$route.path == '/home/1'){
-        this.check0 = false;
-        this.check1 = true;
-        this.check2 = false;
-        this.check3 = false
-      }else if(this.$route.path == '/home/2'){
-        this.check0 = false;
-        this.check1 = false;
-        this.check2 = true;
-        this.check3 = false
-      }else if(this.$route.path == '/home/3'){
-        this.check0 = false;
-        this.check1 = false;
-        this.check2 = false;
-        this.check3 = true;
-      }
+      var yz = this.$route.path;
+      this.viewActive = yz.substring(yz.lastIndexOf('/')+1)
     },
     components:{
       selfdom,//
-      top, //上部标签菜单
-      crunchies,
+      fm,
       mv,
-      fm
+      crunchies,
+      top, //上部标签菜单
     },
     methods: {
       goback(index) {
         this.$router.go(index);
       },
       toggle(index){
-        var _this = this;
-         if(index === 0){
-           _this.check0 = true;
-           _this.check1 = false;
-           _this.check2 = false;
-           _this.check3 = false
-         }else if(index === 1){
-           _this.check0 = false;
-           _this.check1 = true;
-           _this.check2 = false;
-           _this.check3 = false
-         }else if(index === 2){
-           _this.check0 = false;
-           _this.check2 = true;
-           _this.check1 = false;
-           _this.check3 = false
-         }else if(index === 3){
-           _this.check0 = false;
-           _this.check1 = false;
-           _this.check2 = false;
-           _this.check3 = true;
-         }
+        var _this  = this
+        _this.viewActive = _this.listV[index].loct
       }
     }
   }

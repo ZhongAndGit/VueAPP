@@ -51,25 +51,26 @@
       getBanner(){
         var _this = this;
         var newArr = [];
-        axios.get('http://123.207.59.80:3000/banner').then(function(res){
-          res.data.banners.forEach(function(item){
-            newArr.push({
-              title:item.typeTitle,
-              style:{
-                background:'url("'+item.pic+'")'
-              }
+          axios.get('http://123.207.59.80:3000/banner').then(function(res){
+            res.data.banners.forEach(function(item){
+              newArr.push({
+                title:item.typeTitle,
+                style:{
+                  background:'url("'+item.pic+'")'
+                }
+              })
             })
+            _this.pages = newArr;
           })
-          _this.pages = newArr
-        })
+
       }
     }
   }
 </script>
-<style>
+<style lang="scss">
+  @import '../../../../assets/style/common';
   .slider-content{
     width: 100%;
-    height: 200px;
-    margin-top:12vh;
+    height: px2rem(200px);
   }
 </style>

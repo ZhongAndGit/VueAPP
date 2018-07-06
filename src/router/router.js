@@ -8,12 +8,9 @@ import searchdata from '@/components/SearchData/searchdata'
 import comment from '@/components/Comment/comment'
 
 const routes = [
-  { path: '/', redirect: 'home'},
-  { path: '/home', component: home},
-  { path: '/home/0', component: home},
-  { path: '/home/1', component: home},
-  { path: '/home/2', component: home},
-  { path: '/home/3', component: home},
+  { path: '/', redirect: 'home/selfdom'},
+  { path: '/home', redirect: 'home/selfdom'},
+  { path: '/home/:type', component: home},
   { path: '/myMusic', component: myMusic},
   { path: '/newMusic', component: newMusic},
   { path: '/musicDetail/:id', component: musicDetail},

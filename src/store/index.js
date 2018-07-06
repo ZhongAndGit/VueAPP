@@ -4,7 +4,6 @@
 import Vue from 'vue';
 /*引入资源请求插件*/
 import Vuex from 'vuex';
-
 /*使用VueResource插件*/
 Vue.use(Vuex);
 
@@ -28,7 +27,8 @@ export const store = new Vuex.Store({
       changeTime: 0,                          //  指定播放时刻
       listIndex: -1,                          //  当前歌曲在歌曲列表的位置
       autoNext: true,                          //  用于触发自动播放下一首(需改进)
-    }
+    },
+    crunchIes:null     //榜單
   },
   getters: {
     id: state => state.playing.id,
@@ -46,6 +46,7 @@ export const store = new Vuex.Store({
     changeTime: state => state.playing.changeTime,
     listIndex: state => state.playing.listIndex,
     autoNext: state => state.playing.autoNext,
+    crunchIes: state => state.crunchIes,
   },
   mutations: {
     setId: (state,id) => {state.playing.id = id},
@@ -63,6 +64,8 @@ export const store = new Vuex.Store({
     setSongsList: (state,songsList) => {state.playing.songsList = songsList},
     pushSongsList: (state,song) => { state.playing.songsList.unshift(song) },
     setListIndex: (state,listIndex) => {state.playing.listIndex = listIndex},
-    setAutoNext: (state,autoNext) => {state.playing.autoNext = autoNext}
+    setAutoNext: (state,autoNext) => {state.playing.autoNext = autoNext},
+    setCrunchIes: (state,crunchIes) => {state.crunchIes = crunchIes},
   }
 })
+

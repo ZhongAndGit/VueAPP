@@ -151,24 +151,29 @@
       }
   }
 </script>
-<style>
+<style lang="scss">
   @import '../../assets/font/iconfont.css';
- em,h2{font-weight: inherit}
+  @import '../../assets/style/common.scss';
+
+  $browser-default-font-size: 50px !default;
+    @function pxTorem($px) {
+      @return $px / $browser-default-font-size * 1rem;
+  }
+  #detail{
+    font-size: pxTorem(12px);
+  }
   #detail .header{
     background: rgba(0,0,0,0.2);
     width: 100%;
     margin: 0;
     color: white;
     display: flex;
-    height: 6vh;
-    line-height: 6vh;
+    height: px2rem(50px);
+    line-height: px2rem(50px);
     justify-content: space-between;
   }
-  #detail .header>h2{
-    margin: 0;
-  }
   #detail .header>div{
-    margin: 0 3vw;
+    margin: 0 px2rem(15px);
     text-align: center;
   }
   #detail .list-top{
@@ -182,7 +187,7 @@
   }
   #detail .list-top .img_wrap>div{
     width: 50%;
-    height: 180px;
+    height: px2rem(200px);
     text-align: left;
   }
   #detail .list-top .img_wrap .left{
@@ -192,15 +197,15 @@
 
   #detail .list-top .img_wrap .left>img{
     width: 65%;
-    margin-top: 25px;
+    margin-top: px2rem(20px);
   }
   #detail .list-top .img_wrap .right h2{
-    margin: 10% 0;
-    line-height: 25px;
+    margin: px2rem(20px) 0;
+    line-height: px2rem(25px);
   }
   #detail .list-top .img_wrap .right img{
-    width:40px;
-    height: 40px;
+    width:px2rem(40px);
+    height: px2rem(40px);
     border-radius: 50%;
     display: inline-block;
     vertical-align: middle;
@@ -210,7 +215,7 @@
     top: 0;
     left: 0;
     z-index: -1;
-    height: 36vh;
+    height: px2rem(400px);
     width: 100%;
     /*background-position: center top ;*/
     background-size:100%;
@@ -224,23 +229,23 @@
     background: rgba(255,255,255,0.6);
     color: #666;
     text-align: left;
-    padding: 20px;
+    padding: px2rem(20px);
     overflow: hidden;
   }
   .pylst_intro .tag{
-   line-height: 30px;
+   line-height: px2rem(30px);
   }
   .pylst_intro .tag>em{
     background: goldenrod;
     font-style: normal;
-    border-radius: 2px;
-    padding: 2px 5px;
-    margin-right: 5px ;
+    border-radius: px2rem(2px);
+    padding: px2rem(4px) px2rem(8px);
+    margin-right: px2rem(5px) ;
   }
   .pylst_intro .descr_content{
     position: relative;
     /*line-height: 19px;*/
-     min-height: 80px;
+     min-height: px2rem(100px);
   }
   .pylst_intro .descr_content .descr_detail{
     position: absolute;
@@ -254,34 +259,34 @@
     width: 100%;
     height: 100%;
     overflow-y:auto;
-    line-height: 25px;
+    line-height: px2rem(33px);
   }
   .listDetail .item{
     width: 100%;
     overflow: hidden;
-    height: 60px;
+    height: px2rem(70px);
     display: flex;
     justify-content: space-between;
   }
 
   .listDetail>h3{
     margin: 0 auto;
-    width: 95%;
-    padding: 5px 2.5%;
+    /*width: 95%;*/
+    padding: px2rem(10px) px2rem(20px);
     text-align: left;
     font-weight: normal;
     background-color: #eeeff0;
   }
 
   .listDetail .item .sequence{
-    width: 30px;
+    width: px2rem(40px);
     /*flex: 1;*/
   }
   .listDetail .item .sequence span{
     display: table-cell;
     vertical-align: middle;
-    width: 30px;
-    height: 60px;
+    width:px2rem(40px);
+    height: px2rem(70px);
   }
   .listDetail .item .song-msg{
     border-bottom: 1px solid #ddd;
@@ -290,24 +295,24 @@
     position: relative;
   }
   .listDetail .item .song-msg .song-name{
-    font-size: 14px;
+    font-size: pxTorem(15px);
     margin: 0px;
-    padding: 8px 0;
+    padding: px2rem(10px) 0;
     text-align: left;
     overflow-x: hidden;
     text-overflow:ellipsis;
-    width: 350px;
+    width: px2rem(425px);
     /*display: inline-block;*/
     white-space:nowrap;
   }
   .listDetail .item .song-msg .description{
-    font-size: 12px;
+    font-size: pxTorem(12px);
     font-weight: normal;
     overflow: hidden;
     text-overflow:ellipsis;
     text-align: left;
-    width: 350px;
-    padding: 9px 0;
+    width: px2rem(425px);
+    padding: px2rem(10px) 0;
     /*display: inline-block;*/
     color: #666;
     white-space:nowrap;
@@ -318,12 +323,12 @@
     right: 0;
     top: 0;
     width: 10%;
-    height: 60px;
+    height: px2rem(70px);
   }
   .listDetail .item .song-msg .icon span{
     display: table-cell;
     vertical-align: middle;
     width: 10%;
-    height: 60px;
+    height: px2rem(70px);
   }
 </style>

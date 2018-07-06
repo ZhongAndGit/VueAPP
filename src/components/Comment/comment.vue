@@ -6,7 +6,7 @@
           <div class=""><h2>评论</h2></div>
           <div class="iconfont" ></div>
         </div>
-        <div class="artist " @click="toPlayer()">
+        <div class="artist " @click="goback(-1)">
           <div class="img"><img :src="picUrl" alt=""></div>
           <ul class="message">
             <li>{{title}}</li>
@@ -96,21 +96,30 @@
       }
   }
 </script>
-<style>
+<style lang="scss">
+  @import '../../assets/style/common.scss';
+
+  $browser-default-font-size: 50px !default;
+  @function pxTorem($px) {
+  @return $px / $browser-default-font-size * 1rem;
+  }
+  .comment{
+    font-size: pxTorem(12px);
+  }
   .comment .bgcl{
     position: absolute;
     top: 0;
     left: 0;
     z-index: -1;
-    height: 160px;
+    height: px2rem(200px);
     width: 100%;
     /* background-position: center top; */
     background-size: 100%;
-    -webkit-filter: blur(25px);
-    -moz-filter: blur(25x);
-    -ms-filter: blur(25px);
-    -o-filter: blur(25px);
-    filter: blur(25px);
+    -webkit-filter: blur(px2rem(25px));
+    -moz-filter: blur(px2rem(25x));
+    -ms-filter: blur(px2rem(25px));
+    -o-filter: blur(px2rem(25px));
+    filter: blur(px2rem(25px));
   }
  .comment .comment-top{
    background: rgba(0,0,0,0.2);
@@ -120,8 +129,8 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    height: 50px;
-    line-height: 50px;
+    height: px2rem(50px);
+    line-height: px2rem(50px);
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
@@ -139,9 +148,9 @@
     flex-wrap: wrap;
   }
  .comment .artist .img{
-   height: 90px;
-   width: 90px;
-   padding: 10px;
+   height:px2rem( 120px);
+   width: px2rem(120px);
+   padding: px2rem(20px);
  }
  .comment .artist .img>img{
    width: 100%;
@@ -149,51 +158,50 @@
  }
  .comment .artist .message{
    flex: 1;
-   line-height: 25px;
+   line-height: px2rem(35px);
    text-align: left;
  }
  .comment .artist .message>li:first-child{
-    margin-top: 30px;
+    margin-top: px2rem(40px);
  }
  .comment .title{
-    line-height: 25px;
+    line-height: px2rem(30px);
     background: rgba(0,0,0,0.5);
     color: white;
    text-align: left;
-   padding-left: 10px;
+   padding-left: px2rem(20px);
  }
   .comment .item-list{
     display: flex;
     justify-content: space-between;
   }
   .comment .item-list .img{
-    width: 50px;
-    height: 50px;
-    padding: 10px;
+    width: px2rem(70px);
+    height: px2rem(70px);
+    padding: px2rem(20px)
   }
   .comment .item-list .img>img{
     width: 100%;
-    height: 100%;
     border-radius: 50%;
   }
 
   .comment .item-list .message-list{
     width: 90%;
-    line-height: 25px;
+    line-height: px2rem(35px);
     border-bottom: 1px solid #ddd;
   }
   .comment .item-list .message-list .praise{
-    margin-right: 10px;
+    margin-right: px2rem(10px);
   }
   .comment .item-list .message-list .much{
-    margin-top: 10px;
+    margin-top: px2rem(10px);
     text-align: left;
     display: flex;
     justify-content: space-between;
   }
 
   .comment .item-list .message-list .product{
-   margin-right: 10px;
+    margin-right:px2rem( 10px);
     text-align: left;
   }
   .qse{

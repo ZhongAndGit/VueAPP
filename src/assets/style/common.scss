@@ -9,7 +9,7 @@
   }
 }
 // px转换为rem
-@function px2rem ($px, $base-font-size: 64px) {
+@function px2rem ($px, $base-font-size: 50px) {
   @if unitless($px) {
     @warn "Assuming #{$px} to be in pixels, attempting to convert it into pixels for you";
     @return px2rem($px * 1px);

@@ -2,10 +2,11 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import VueJsonp from 'vue-jsonp'
+import VueJsonp from 'vue-jsonp';//jsonp跨域處理
 import App from './App.vue'
 import routes from './router/router'
-import {store} from './vuex/index'
+import {store} from './store/index'
+import Mui from 'vue-awesome-mui';//手機返還鍵問題
 
 import VideoPlayer from 'vue-video-player'
 require('video.js/dist/video-js.css')
@@ -15,6 +16,7 @@ Vue.config.productionTip = false
 
 Vue.use(VueRouter)
 Vue.use(VueJsonp)
+Vue.use(Mui)
 
 const router = new VueRouter({
   mode:'hash',

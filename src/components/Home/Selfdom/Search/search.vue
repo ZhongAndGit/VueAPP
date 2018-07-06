@@ -6,7 +6,14 @@
       <div><button class="iconfont  icon-sousuo" @click="getDt(data)"></button></div>
     </div>
 </template>
-<style>
+<style lang="scss">
+  @import '../../../../assets/style/common.scss';
+
+  $browser-default-font-size: 50px !default;
+  @function pxTorem($px) {
+  @return $px / $browser-default-font-size * 1rem;
+  }
+
   button{
     border:0px;
     background-color:transparent;
@@ -21,17 +28,17 @@
     width: 100%;
     margin: 0;
     display: flex;
-    height: 6vh;
-    line-height: 6vh;
+    height: px2rem(50px);
+    line-height: px2rem(50px);
     justify-content: space-around;
+    font-size: pxTorem(12px);
   }
     #search input{
-      width: 90%;
-      line-height: 3vh;
+      line-height: px2rem(30px);
       border-radius: 1rem;
       border-style: none;
       /*font-size: 1rem;*/
-      padding: 0 20px;
+      padding: 0 px2rem(20px);
       outline: none;
     }
 </style>

@@ -91,22 +91,29 @@
     }
   }
 </script>
-<style >
-  .mv_c{margin-top: 12vh;}
-  .mv .title{
-    font-size: 15px;
-    height: 50px;
-    line-height: 50px;
-    text-align: left;
+<style lang="scss">
+  @import '../../../assets/style/common.scss';
+
+  $browser-default-font-size: 50px !default;
+    @function pxTorem($px) {
+      @return $px / $browser-default-font-size * 1rem;
+  }
+  .mv_c{
     width: 95%;
     margin: auto;
+  }
+  .mv .title{
+    font-size: pxTorem(16px);
+    height: px2rem(50px);
+    line-height: px2rem(50px);
+    text-align: left;
     overflow: hidden;
     text-overflow:ellipsis;
   }
   .mv .line-msg{
-    height: 200px;
-    line-height: 200px;
-    font-size: 14px;
+    height: px2rem(200px);
+    line-height: px2rem(200px);
+    font-size: pxTorem(14px);
   }
   video{width: 100%;}
 

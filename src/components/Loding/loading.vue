@@ -1,21 +1,21 @@
 <template>
-    <div class="loading">
+    <div class="loading" @click="reload">
       <img src="./loading.gif" alt="">
       <h1  v-if="msg" v-text="msg"></h1>
     </div>
 </template>
 <script>
   export default {
-    mounted() {
-      var _this = this;
-      setTimeout(function() {
-        _this.msg = '若长时间未加载成功可以退出重试..'
-      },40000)
-    },
     props: {
       msg: {
         type: String,
         default: '正在加载中...'
+      }
+    },
+    methods:{
+      // 重新加载
+      reload () {
+        this.$emit('reload')
       }
     }
   }

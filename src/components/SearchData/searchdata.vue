@@ -51,7 +51,13 @@
     }
   }
 </script>
-<style>
+<style lang="scss">
+  @import '../../assets/style/common.scss';
+
+  $browser-default-font-size: 50px !default;
+    @function pxTorem($px) {
+      @return $px / $browser-default-font-size * 1rem;
+  }
   .search-k{
     position: fixed;
     top: 0;
@@ -62,38 +68,38 @@
     justify-content: space-between;
     flex-wrap: wrap;
     flex: 1;
-    height: 50px;
+    height: px2rem(60px);
     z-index: 10;
     background: rgba(0,0,0,1);
   }
   .search-k .input{
     width: 80%;
-    height: 30px;
-    line-height: 30px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    border-radius: 20px;
+    height: px2rem(40px);
+    line-height: px2rem(40px);
+    -webkit-border-radius: px2rem(20px);
+    -moz-border-radius: px2rem(20px);
+    border-radius: px2rem(20px);
     background: white;
     margin: auto;
   }
   .search-k .input input{
-    line-height: 30px;
+    line-height: px2rem(40px);
     width: 90%;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    border-radius: 20px;
+    -webkit-border-radius: px2rem(20px);
+    -moz-border-radius: px2rem(20px);
+    border-radius: px2rem(20px);
     border-style: none;
     outline: none;
   }
   .list-music{
     position: absolute;
-    top: 50px;
+    top: px2rem(60px);
     left: 0;
     right: 0;
     bottom: 0;
   }
   .list-music .item{
-    height: 50px;
+    height: px2rem(60px);
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -101,18 +107,18 @@
     border-bottom: 1px solid #ddd;
   }
   .list-music .item .img{
-    height: 45px;
-    padding: 2.5px;
+    height: px2rem(55px);
+    padding: px2rem(2.5px);
   }
   .list-music .item .name{
     width: 100%;
     flex: 1;
     text-align: left;
-    padding-left: 10px ;
+    padding-left: px2rem(10px) ;
   }
   .list-music .item .name li{
-    height: 25px;
-    line-height: 25px;
+    height: px2rem(30px);
+    line-height: px2rem(30px);
     overflow: hidden;
     vertical-align: middle;
     text-overflow:ellipsis;

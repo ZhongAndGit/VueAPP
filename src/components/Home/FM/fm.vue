@@ -125,20 +125,23 @@
         }
     }
 </script>
-<style>
-  .fm{
-    margin-top: 12vh;
+<style lang="scss">
+  @import '../../../assets/style/common.scss';
+
+  $browser-default-font-size: 50px !default;
+    @function pxTorem($px) {
+      @return $px / $browser-default-font-size * 1rem;
   }
 
   .fm .fmList{
-    height: 120px;
+    height: px2rem(140px);
     width: 100%;
     display: flex;
     justify-content: space-around;
   }
   .fm .fmList .item-img{
-    width: 120px;
-    height: 120px;
+    width: px2rem(140px);
+    height: px2rem(140px);
     position: relative;
   }
   .fm .fmList .item-img>span{
@@ -148,25 +151,25 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
-    font-size: 50px;
-    line-height: 120px;
+    font-size: pxTorem(50px);
+    line-height: px2rem(140px);
     color: white;
   }
   .fm .fmList .item-img>img{
     width: 70%;
     margin-top: 15%;
     border-radius: 50%;
-    border: 1px solid #e91e63;
+    border: px2rem(1px) solid #e91e63;
   }
   .fm .fmList .item-list{
     flex: 1;
   }
   .fm .fmList .item-list>li{
-    line-height: 35px;
-    height: 35px;
+    line-height: px2rem(45px);
+    height: px2rem(45px);
     overflow: hidden;
     text-overflow:ellipsis;
     text-align: left;
-    padding:0 20px;
+    padding:0 px2rem(20px);
   }
 </style>
