@@ -19,8 +19,8 @@ npm run build --report
 ```
 # 文件路径
 <pre>
---src              路基
-  --assets         资源
+|--src              路基
+  |--assets         资源
       --font       字体
       --style      样式
   --components     组件
