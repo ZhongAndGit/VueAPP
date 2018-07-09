@@ -47,7 +47,7 @@ npm run build --report
   --main.js
  </pre>
 ---------------------------------------
-#暂定APP页面
+# 暂定APP页面
 ![image](https://github.com/ZhongAndGit/VueAPP/blob/master/src/img/gxh.gif)</br>
 ![image](https://github.com/ZhongAndGit/VueAPP/blob/master/src/img/dt.gif)</br>
 ![image](https://github.com/ZhongAndGit/VueAPP/blob/master/src/img/mv.gif)</br>
