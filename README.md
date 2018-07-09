@@ -19,11 +19,11 @@ npm run build --report
 ```
 # 文件路径
 <pre>
-|--src              路基
-  |--assets         资源
+|——src              路基
+  |——assets         资源
       --font       字体
       --style      样式
-  |--components     组件
+  |——components     组件
       --Audio           音乐播放器组件
       --Comment         评论
       --Home            主页
@@ -41,10 +41,10 @@ npm run build --report
       --Playervideo     视频播放器组件
       --SearchData      搜索组件
       --Top             标签切换
-  |--router         配置路由
-  |--vuex           数据存储
-  |--App.vue
-  |--main.js
+  |——router         配置路由
+  |——vuex           数据存储
+  |——App.vue
+  |——main.js
  </pre>
 ---------------------------------------
 # 暂定APP页面
