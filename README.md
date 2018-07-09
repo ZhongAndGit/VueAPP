@@ -47,4 +47,16 @@ npm run build --report
   --main.js
  </pre>
 ---------------------------------------
+#暂定APP页面
 ![image](https://github.com/ZhongAndGit/VueAPP/blob/master/loading.gif)
+![image](https://github.com/ZhongAndGit/VueAPP/blob/master/src/img/gxh.gif)
+![image](https://github.com/ZhongAndGit/VueAPP/blob/master/src/img/dt.gif)
+![image](https://github.com/ZhongAndGit/VueAPP/blob/master/src/img/mv.gif)
+![image](https://github.com/ZhongAndGit/VueAPP/blob/master/src/img/gqph.gif)
+![image](https://github.com/ZhongAndGit/VueAPP/blob/master/src/img/gqlb.gif)
+![image](https://github.com/ZhongAndGit/VueAPP/blob/master/src/img/bflb.gif)
+![image](https://github.com/ZhongAndGit/VueAPP/blob/master/src/img/bfq.gif)
+![image](https://github.com/ZhongAndGit/VueAPP/blob/master/src/img/gc.gif)
+![image](https://github.com/ZhongAndGit/VueAPP/blob/master/src/img/pl.gif)
+![image](https://github.com/ZhongAndGit/VueAPP/blob/master/src/img/ss.gif)
+![image](https://github.com/ZhongAndGit/VueAPP/blob/master/src/img/zcd.gif)
