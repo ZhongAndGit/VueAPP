@@ -28,12 +28,12 @@ npm run build --report
       |--Comment         评论
       |--Home            主页
       |--Crunchies       新歌排行榜
-            --FM              电台
-            --MV              MV
-            --Selfdom         个性化
-                --Carousel          轮播图
-                --NewList           主页榜单
-                --Search            搜索
+            |--FM              电台
+            |--MV              MV
+            |--Selfdom         个性化
+                |--Carousel          轮播图
+                |--NewList           主页榜单
+                |--Search            搜索
       |--MusicDetail     歌单详情
       |--MyMusic         我的音乐
       |--NewMusic        歌曲热文
