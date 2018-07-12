@@ -69,3 +69,15 @@ export const store = new Vuex.Store({
   }
 })
 
+const text = {
+
+}
+
+const news = {
+
+}
+
+new Vuex.Store({
+  text,
+  news,
+})

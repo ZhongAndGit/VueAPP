@@ -3,7 +3,7 @@
     <top></top>
     <div id="newMusic">
       <div  style="width:100%;height:200px;margin-top: 42px ">
-        音乐热文
+        待开发中
       </div>
     </div>
   </div>
