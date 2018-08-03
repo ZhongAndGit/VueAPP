@@ -2,7 +2,7 @@
     <div class="fm">
      <div class="fmList" v-for="(item,index) in fmData" >
         <div class="item-img"><img :src="item.picUrl" alt="">
-          <span name="span" :class="classBT" @click="togglePlay(item.program.mainTrackId,$event.target )"></span>
+          <span name="span"  :class="{'iconfont icon-bofang':item.program.mainTrackId != thisID||!djPlaye,'iconfont icon-zanting':item.program.mainTrackId === thisID&&djPlaye}" @click="toggPlay(item.program.mainTrackId,$event.target,$event)"></span>
         </div>
         <ul class="item-list">
           <li>{{item.name}}</li>
@@ -10,38 +10,20 @@
           <li>{{item.program.dj.nickname }}</li>
         </ul>
      </div>
+      <audio :src="url"  id="DJplayer"  preload="true" @ended="ended"></audio>
     </div>
 </template>
-<script>
+<script type="text/ecmascript-6">
     import axios from 'axios'
-    import { mapMutations, mapGetters } from 'vuex'
-
     export default {
         data() {
             return {
               host:this.$store.state.HOST,
               fmData:null,
               thisID:0,
-              classBT:'iconfont icon-bofang',
-              classBTa:'iconfont icon-zanting'
+              djPlaye:false,
+              url:null,
             }
-        },
-        computed: {
-          ...mapGetters([
-            'url',
-            'songsList',
-            'isPlay',
-            'playButtonUrl',
-            'id',
-            'picUrl',
-            'duration',
-            'curTime',
-            'title',
-            'artist',
-            'lrc',
-            'listIndex',
-            'autoNext',
-          ])
         },
         mounted() {
           var _this = this;
@@ -51,77 +33,35 @@
             console.log(res.data)
           })
         },
-        watch:{
-          isPlay: function(val) {
-            if(val)
-              this.$store.commit('setPlayButtonUrl',"iconfont icon-zanting");
-            else
-              this.$store.commit('setPlayButtonUrl',"iconfont icon-bofang");
-          },
-        },
         methods: {
-            goback(index) {
-                this.$router.go(index);
-            },
-            togglePlay(id,dom) {
-              var _this = this;
-              var alist = document.getElementsByName("span");
-                if(alist){
-                  for(var idx = 0; idx < alist.length; idx ++){
-                    var mya = alist[idx];
-                    mya.className = _this.classBT;
-                  }
-                }
-              if( this.isPlay ) {
-                this.$store.commit('setIsPlay',false);
-                dom.setAttribute('class',_this.classBT);
-              }else {
-                dom.setAttribute('class',_this.classBTa);
-                  _this.thisID = id;
-                  axios.get(_this.host+'/music/url',{
-                    params:{
-                      id:id
-                    }
-                  }).then(function(res){
-                    _this.$store.commit('setId',id);
-                    _this.getSongDetail();
-                  })
-                this.$store.commit('setIsPlay',true);
-              }
-            },
-            getSongDetail() {
-            var _this = this;
-            axios.get(this.host+'/song/detail',{
-              params: {
-                ids: _this.id
-              }
-            }).then(function(res) {
-              _this.getLyric();
-              _this.$store.commit('setpicUrl',res.data.songs[0].al.picUrl);
-              _this.$store.commit('setTitle',res.data.songs[0].name);
-              _this.$store.commit('setArtist',res.data.songs[0].ar[0].name);
-            })
+          goback(index) {
+            this.$router.go(index);
           },
-            getLyric() {
-            this.$store.commit('setLyric', []);
-            this.$store.commit('setLrc', []);
-            if(!this.id)
-              return false;
+          toggPlay(id, dom,event) {
             var _this = this;
-            axios.get(this.host + '/lyric',{
+            _this.thisID = id;
+            var player =  document.querySelector('#DJplayer');
+            axios.get(_this.host + '/music/url', {
               params: {
-                id: _this.id
+                id: id
               }
-            }).then(function(res) {
-              if(res.data.lrc){
-                var lrc = _this.parseLyric(res.data.lrc.lyric);
-                _this.$store.commit('setLyric',res.data.lrc.lyric);
-                _this.$store.commit('setLrc',lrc);
+            }).then(function (res) {
+              _this.url = res.data.data[0].url;
+              if(_this.djPlaye){
+                player.pause();
+                console.log('暂停')
+                _this.djPlaye = false;
               }else{
-                console.log('无歌词')
+                player.play()
+                console.log('开始')
+                _this.djPlaye = true;
               }
             })
           },
+          ended() {
+            var _this = this;
+            _this.djPlaye = false;
+          }
         }
     }
 </script>

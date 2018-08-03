@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "video.js": "^7.1.0",
     "vue": "^2.5.2",
     "vue-awesome-mui": "^1.7.3",
     "vue-awesome-swiper": "^3.1.3",

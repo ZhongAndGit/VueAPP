@@ -3,7 +3,7 @@
     <!-- 配置slider组件 -->
     <slider :pages="pages" :sliderinit="sliderinit" @slide='slide' @tap='onTap' @init='onInit'>
       <!-- 设置loading,可自定义 -->
-      <div slot="loading" ><img style="width: 100%" src="../../../Loding/loading.gif" alt=""></div>
+      <div slot="loading" ><img style="width: 100%" src="../../Loding/loading.gif" alt=""></div>
     </slider>
   </div>
 </template>
@@ -68,7 +68,7 @@
   }
 </script>
 <style lang="scss">
-  @import '../../../../assets/style/common';
+  @import '../../../assets/style/common';
   .slider-content{
     width: 100%;
     height: px2rem(200px);

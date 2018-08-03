@@ -30,6 +30,7 @@ npm run build --report
       |--Crunchies       新歌排行榜
             |--FM              电台
             |--MV              MV
+                |--               全部mv、热点mv、现场版mv、娱乐mv、艺术家mv
             |--Selfdom         个性化
                 |--Carousel          轮播图
                 |--NewList           主页榜单

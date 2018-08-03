@@ -69,7 +69,7 @@
   }
 </script>
 <style lang="scss">
-  @import '../../../../assets/style/common';
+  @import '../../../assets/style/common';
 
   $browser-default-font-size: 50px !default;
   @function pxTorem($px) {

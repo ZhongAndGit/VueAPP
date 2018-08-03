@@ -7,7 +7,7 @@
     </div>
 </template>
 <style lang="scss">
-  @import '../../../../assets/style/common.scss';
+  @import '../../../assets/style/common';
 
   $browser-default-font-size: 50px !default;
   @function pxTorem($px) {

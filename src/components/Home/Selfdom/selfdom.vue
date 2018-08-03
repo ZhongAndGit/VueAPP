@@ -7,9 +7,9 @@
 </template>
 <script>
     import axios from 'axios'
-    import Ecar from './Carousel/Carousel.vue'
-    import Ctop from './Search/search.vue'
-    import Clist from './NewList/newList.vue'
+    import Ecar from './Carousel.vue'
+    import Ctop from './search.vue'
+    import Clist from './newList.vue'
 
     export default {
         data() {

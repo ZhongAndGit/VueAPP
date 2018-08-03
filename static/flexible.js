@@ -105,7 +105,7 @@
         if (typeof d === 'string' && d.match(/rem$/)) {
             val += 'px';
         }
-        return val;
+        return val; 
     }
     flexible.px2rem = function(d) {
         var val = parseFloat(d) / this.rem;
